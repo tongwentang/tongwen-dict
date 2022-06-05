@@ -1,0 +1,4 @@
+{
+  "extends": "col-config/typescript/tsconfig.strict.json",
+  "include": ["src"]
+}

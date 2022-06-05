@@ -5,5 +5,28 @@
   "type": "module",
   "repository": "git@github.com:tongwentang/tongwen-dict.git",
   "author": "t7yang <t7yang@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "test:type": "tsc --noEmit",
+    "build": "tsx src/main.ts",
+    "build:safe": "npm run test:type && npm run build"
+  },
+  "nano-staged": {
+    "*.{ts,json,md}": [
+      "npx prettier --ignore-unknown --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "col-config": "^1.1.0",
+    "husky": "^8.0.1",
+    "nano-staged": "^0.8.0",
+    "prettier": "^2.6.2",
+    "tsx": "^3.4.2",
+    "typescript": "^4.7.2"
+  }
 }
