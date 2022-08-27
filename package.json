@@ -11,6 +11,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "update": "yarn upgrade-interactive",
     "test:type": "tsc --noEmit",
     "build": "tsx src/main.ts",
     "build:safe": "npm run test:type && npm run build"
