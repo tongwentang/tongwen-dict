@@ -136,6 +136,7 @@ export const shareable = {
 };
 
 export default {
+  ...shareable,
   中国台湾: '台灣',
   中国台湾省: '台灣',
 };

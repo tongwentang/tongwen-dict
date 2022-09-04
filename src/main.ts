@@ -22,11 +22,11 @@ import { getWordDicts } from './word/index.js';
 
   getWordDicts()
     .then<DictMeta[]>(({ s2t, t2s }) => [
-      { dict: createJson([s2t], true), path: fileURLToPath(new URL(`./s2t-word.json`, pathDist)) },
-      { dict: createJson([t2s], true), path: fileURLToPath(new URL(`./t2s-word.json`, pathDist)) },
-      { dict: createJson([s2t], false), path: fileURLToPath(new URL(`./s2t-word.min.json`, pathDist)) },
-      { dict: createJson([t2s], false), path: fileURLToPath(new URL(`./t2s-word.min.json`, pathDist)) },
+      { dict: createJson([s2t], true), path: fileURLToPath(new URL(`./s2t-phrase.json`, pathDist)) },
+      { dict: createJson([t2s], true), path: fileURLToPath(new URL(`./t2s-phrase.json`, pathDist)) },
+      { dict: createJson([s2t], false), path: fileURLToPath(new URL(`./s2t-phrase.min.json`, pathDist)) },
+      { dict: createJson([t2s], false), path: fileURLToPath(new URL(`./t2s-phrase.min.json`, pathDist)) },
     ])
     .then(metas => Promise.all(metas.map(m => writeFile(m.path, m.dict))))
-    .then(() => console.log('write word dicts done'));
+    .then(() => console.log('write phrase dicts done'));
 })();
