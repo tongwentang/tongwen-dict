@@ -50,7 +50,6 @@ export const shareable = {
   元编程: '元程式設計',
   元数据: '中繼資料',
   内存: '記憶體',
-  内存盘: 'RAM Disk',
   内网: '內部網路',
   内核: '核心',
   内联函数: '內嵌函式',
@@ -150,7 +149,6 @@ export const shareable = {
   创建: '建立',
   后台运行: '背景執行',
   后台播放: '背景播放',
-  回车: 'Enter',
   回调: '回呼',
   因特网: '網際網路',
   在线: '線上',
@@ -167,7 +165,6 @@ export const shareable = {
   字符集: '字元集',
   存盘: '存檔',
   存储: '儲存',
-  安卓: 'Android',
   寻址: '定址',
   导入: '匯入',
   导出: '匯出',
@@ -517,4 +514,7 @@ export const shareable = {
 /* 以下部分只在s2t轉換 在t2s時不做轉換 */
 export default {
   ...shareable,
+  回车: 'Enter',
+  安卓: 'Android',
+  内存盘: 'RAM Disk',
 };
