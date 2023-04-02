@@ -1,6 +1,6 @@
 import { readdir } from 'fs/promises';
 import { Dict } from '../model/model.js';
-import { joinDicts } from '../utilities/join-dicts.js';
+import { joinDicts } from '../utilities/dict.js';
 
 const getFns = () => {
   return readdir(new URL('.', import.meta.url)).then(fns =>
