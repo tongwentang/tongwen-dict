@@ -38,16 +38,65 @@
 
 - [PATCH] 修正過度轉換縱然與 [WARNING] 轉換詞彙分屬不同分類，仍應放在相同的轉換表中。
 
-## 使用說明
+## Usage
 
-目前只能夠透過下載本專案自行下指令輸出 JSON 檔，未來會考慮上架到其他平台（ npm 等）。
+There are several ways to get the dictionary JSON files:
 
-指令輸出：
+### Self Building
 
+Clone this repo, install dependencies, then run the `build` command, you will get the dictionaries in `./dist` folder.
+
+```sh
+# clone this repo
+git clone git@github.com:tongwentang/tongwen-dict.git
+# install dependencies with npm
+npm install
+# run the build command
+npm run build
 ```
-> git clone git@github.com:tongwentang/tongwen-dict.git # 下載專案
-> yarn install # 安裝
-> yarn build # 程式輸出轉換表
+
+### Via Installation
+
+We also publish the dictionaries to the NPM, so you can simply install the `tongwen-dict` package.
+
+```sh
+npm install tongwen-dict
 ```
 
-順利的話，就可以在 `dist/` 資料夾看到數個 JSON 檔， `*.min.json` 為經壓縮的單列檔案。
+If you using the dictionaries with TypeScript, here is an example:
+
+```typescript
+// ESModule
+import s2tChar from 'tongwen-dict/dist/s2t-char.json';
+
+// CommonJS
+const s2tChar = require('tongwen-dict/s2t-char.json');
+```
+
+### Via Download
+
+If you want to programmatically download the dictionary files, you can download them on unpkg:
+
+```typescript
+interface Manifest {
+  name: string;
+  version: string;
+  dicts: {
+    direction: string;
+    type: string;
+    min: boolean;
+    filename: string;
+    md5: string;
+  }[];
+}
+
+// you can replace the `@1.0.0` to any version you like or simply `@latest` to get the latest version
+const url = (filename: string) => `https://www.unpkg.com/tongwen-dict@1.0.0/dist/${filename}.json`;
+
+// get every minified dictionaries
+fetch(url('manifest'))
+  .then<Manifest>(res => res.json())
+  .then(manifest => Promise.all(manifest.dicts.filter(d => d.min).map(d => fetch(url(d.filename)))));
+```
+
+We also released the dictionaries on github, so you can manually download them on [release page](https://github.com/tongwentang/tongwen-dict/releases).
