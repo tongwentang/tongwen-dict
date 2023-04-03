@@ -13,7 +13,8 @@
     "update": "yarn upgrade-interactive",
     "test:type": "tsc --noEmit",
     "build": "tsx src/main.ts",
-    "build:safe": "npm run test:type && npm run build"
+    "build:safe": "npm run test:type && npm run build",
+    "release": "standard-version --packageFiles package.json"
   },
   "nano-staged": {
     "*.{ts,json,md}": [
