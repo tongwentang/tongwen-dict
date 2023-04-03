@@ -24,6 +24,10 @@
   "files": [
     "dist/*"
   ],
+  "exports": {
+    "./dist/*.json": "./dist/*.json",
+    "./package.json": "./package.json"
+  },
   "devDependencies": {
     "@types/node": "^16.0.0",
     "col-config": "^1.1.0",
