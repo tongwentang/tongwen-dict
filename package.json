@@ -1,7 +1,6 @@
 {
   "name": "tongwen-dict",
   "version": "1.0.0",
-  "main": "src/main.ts",
   "type": "module",
   "repository": "git@github.com:tongwentang/tongwen-dict.git",
   "author": "t7yang <t7yang@gmail.com>",
@@ -21,6 +20,9 @@
       "npx prettier --ignore-unknown --write"
     ]
   },
+  "files": [
+    "dist/*"
+  ],
   "devDependencies": {
     "@types/node": "^16.0.0",
     "col-config": "^1.1.0",

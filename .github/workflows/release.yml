@@ -17,7 +17,10 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run build:safe
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: softprops/action-gh-release@v1
         with:
-          draft: true
+          draft: false
           files: dist/*.*
