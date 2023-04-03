@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/tongwentang/tongwen-dict/compare/v1.0.0...v1.0.1) (2023-04-03)
+
+### Bug Fixes
+
+- redundant array wrapper for each dictionary ([6ba73f9](https://github.com/tongwentang/tongwen-dict/commit/6ba73f9716a7d8668ea1c9cb592f1cecd9af2391))
+
 ## 1.0.0 (2023-04-03)
 
 ### Features
