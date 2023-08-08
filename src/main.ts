@@ -1,32 +1,22 @@
 import { writeFile } from 'fs/promises';
-import { fileURLToPath } from 'url';
 import { getCharDicts } from './charater/index.js';
 import { DictMeta } from './model/model.js';
 import { pathDist } from './path.js';
-import { createJson } from './utilities/create-json.js';
+import { createDictMetas } from './utilities/dict.js';
 import { recreateDir } from './utilities/fs.js';
+import { createManifest, writeManifest } from './utilities/manifest.js';
 import { getWordDicts } from './word/index.js';
 
 (async function main() {
   await recreateDir(pathDist);
 
-  Promise.resolve(getCharDicts())
-    .then<DictMeta[]>(({ s2t, t2s }) => [
-      { dict: createJson([s2t], true), path: new URL('./s2t-char.json', pathDist) },
-      { dict: createJson([t2s], true), path: new URL('./t2s-char.json', pathDist) },
-      { dict: createJson([s2t], false), path: new URL('./s2t-char.min.json', pathDist) },
-      { dict: createJson([t2s], false), path: new URL('./t2s-char.min.json', pathDist) },
+  Promise.all([getCharDicts(), getWordDicts()])
+    .then<DictMeta[]>(([char, phrase]) => [
+      ...createDictMetas(pathDist, char.s2t, { direction: 's2t', type: 'char' }),
+      ...createDictMetas(pathDist, char.t2s, { direction: 't2s', type: 'char' }),
+      ...createDictMetas(pathDist, phrase.s2t, { direction: 's2t', type: 'phrase' }),
+      ...createDictMetas(pathDist, phrase.t2s, { direction: 't2s', type: 'phrase' }),
     ])
-    .then(metas => Promise.all(metas.map(m => writeFile(m.path, m.dict))))
-    .then(() => console.log('write charater dicts done'));
-
-  getWordDicts()
-    .then<DictMeta[]>(({ s2t, t2s }) => [
-      { dict: createJson([s2t], true), path: fileURLToPath(new URL(`./s2t-phrase.json`, pathDist)) },
-      { dict: createJson([t2s], true), path: fileURLToPath(new URL(`./t2s-phrase.json`, pathDist)) },
-      { dict: createJson([s2t], false), path: fileURLToPath(new URL(`./s2t-phrase.min.json`, pathDist)) },
-      { dict: createJson([t2s], false), path: fileURLToPath(new URL(`./t2s-phrase.min.json`, pathDist)) },
-    ])
-    .then(metas => Promise.all(metas.map(m => writeFile(m.path, m.dict))))
-    .then(() => console.log('write phrase dicts done'));
+    .then(metas => Promise.all([writeManifest(createManifest(metas)), ...metas.map(m => writeFile(m.path, m.dict))]))
+    .then(() => console.log('write manifest and dicts done'));
 })();

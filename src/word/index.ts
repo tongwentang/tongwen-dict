@@ -1,10 +1,9 @@
 import { readdir } from 'fs/promises';
-import { fileURLToPath } from 'url';
 import { Dict } from '../model/model.js';
-import { joinDicts } from '../utilities/join-dicts.js';
+import { joinDicts } from '../utilities/dict.js';
 
 const getFns = () => {
-  return readdir(fileURLToPath(new URL('.', import.meta.url))).then(fns =>
+  return readdir(new URL('.', import.meta.url)).then(fns =>
     fns.reduce<{ s2tFns: string[]; t2sFns: string[] }>(
       (col, fn) => {
         fn.includes('s2t.ts') ? col.s2tFns.push(fn) : col.t2sFns.push(fn);
