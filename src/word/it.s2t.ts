@@ -21,6 +21,7 @@ export const shareable = {
   // 返回: '回傳', // [DANGER]
   // 崩溃: '當機', // [DANGER]
   // 编写: '撰寫', // [DANGER]
+  // 头文件: '標頭檔', // [DANGER]
   'PN 结': 'PN 接面',
   'SQL 注入': 'SQL 隱碼攻擊',
   'SQL 注入攻击': 'SQL 隱碼攻擊',
@@ -108,7 +109,6 @@ export const shareable = {
   右键菜单: '右鍵選單', // [WARNING]
   外置: '外接',
   外键: '外部索引鍵',
-  头文件: '標頭檔',
   对话框: '對話方塊',
   对象代码: '目的碼',
   布尔: '布林',
@@ -514,7 +514,7 @@ export const shareable = {
 /* 以下部分只在s2t轉換 在t2s時不做轉換 */
 export default {
   ...shareable,
-  回车: 'Enter',
+  回车键: 'Enter',
   安卓: 'Android',
   内存盘: 'RAM Disk',
 };
