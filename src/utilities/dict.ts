@@ -1,4 +1,4 @@
-import { Dict, DictMeta } from '../model/model.js';
+import type { Dict, DictMeta } from '../model/model.js';
 import { jsonStringify } from './json-stringify.js';
 
 export const createDict = <T extends Dict>(dict: T): T => dict;

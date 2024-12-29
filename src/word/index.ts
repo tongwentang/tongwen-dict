@@ -1,5 +1,5 @@
 import { readdir } from 'fs/promises';
-import { Dict } from '../model/model.js';
+import type { Dict } from '../model/model.js';
 import { joinDicts } from '../utilities/dict.js';
 
 const getFns = () => {

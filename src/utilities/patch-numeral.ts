@@ -1,4 +1,4 @@
-import { Dict } from '../model/model.js';
+import type { Dict } from '../model/model.js';
 
 type Src = ReadonlyArray<string>;
 

@@ -1,6 +1,6 @@
 import { writeFile } from 'fs/promises';
 import { getCharDicts } from './charater/index.js';
-import { DictMeta } from './model/model.js';
+import type { DictMeta } from './model/model.js';
 import { pathDist } from './path.js';
 import { createDictMetas } from './utilities/dict.js';
 import { recreateDir } from './utilities/fs.js';

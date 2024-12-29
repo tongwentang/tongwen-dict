@@ -1,8 +1,8 @@
 import { createHash } from 'crypto';
 import { writeFile } from 'fs/promises';
 import { basename } from 'path';
-import pkg from '../../package-lock.json';
-import { DictMeta, Manifest, ManifestItem } from '../model/model.js';
+import pkg from '../../package-lock.json' with { type: 'json' };
+import type { DictMeta, Manifest, ManifestItem } from '../model/model.js';
 import { pathDist } from '../path.js';
 import { jsonStringify } from './json-stringify.js';
 
