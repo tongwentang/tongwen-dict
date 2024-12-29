@@ -9,8 +9,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "prepare": "husky install",
-    "update": "yarn upgrade-interactive",
+    "prepare": "husky",
     "test:type": "tsc --noEmit",
     "build": "tsx src/main.ts",
     "build:safe": "npm run test:type && npm run build",
@@ -29,13 +28,13 @@
     "./package.json": "./package.json"
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "col-config": "^1.1.0",
-    "husky": "^8.0.3",
+    "@types/node": "^22.10.2",
+    "col-config": "^1.2.0",
+    "husky": "^9.1.7",
     "nano-staged": "^0.8.0",
-    "prettier": "^2.8.7",
+    "prettier": "^3.4.2",
     "standard-version": "^9.5.0",
-    "tsx": "^3.12.6",
-    "typescript": "^5.0.3"
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   }
 }
