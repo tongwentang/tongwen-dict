@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/tongwentang/tongwen-dict/compare/v1.0.1...v1.0.2) (2024-12-29)
+
+### Bug Fixes
+
+- several `添加` & `里活動中心` ([46687c3](https://github.com/tongwentang/tongwen-dict/commit/46687c3df858e86666027a342e5ceb3219cd89a3))
+- several misleading words ([#24](https://github.com/tongwentang/tongwen-dict/issues/24)) ([ce8d02a](https://github.com/tongwentang/tongwen-dict/commit/ce8d02a1eda4da72381e0d6e524c392d007a2050)), closes [#23](https://github.com/tongwentang/tongwen-dict/issues/23)
+- type issues ([fcf5765](https://github.com/tongwentang/tongwen-dict/commit/fcf5765910856f6d7a67bd3e66ba66c3ed6463db))
+
 ### [1.0.1](https://github.com/tongwentang/tongwen-dict/compare/v1.0.0...v1.0.1) (2023-04-03)
 
 ### Bug Fixes
